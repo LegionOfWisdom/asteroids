@@ -36,10 +36,16 @@ def main():
         
         updatable.update(dt)
         
-        for obj in asteroids:
-            if obj.collions(player1):
+        for asteroid in asteroids:
+            if asteroid.collions(player1):
                 return sys.exit("Game over!")
-            
+        
+        for asteroid in asteroids:
+            for shot in shots:
+                if shot.collions(asteroid):
+                    shot.kill()
+                    asteroid.split()
+                    
         screen.fill(color="black")
 
         for obj in drawable:
