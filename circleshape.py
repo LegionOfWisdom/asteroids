@@ -22,6 +22,5 @@ class CircleShape(pygame.sprite.Sprite):
     
     def collions(self, circle):
         distance = self.position.distance_to(circle.position)
-        
         return distance <= self.radius + circle.radius
              
